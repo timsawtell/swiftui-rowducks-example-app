@@ -15,22 +15,11 @@
 		2263FD9D22ADAFBD00DAA01E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2263FD9C22ADAFBD00DAA01E /* Assets.xcassets */; };
 		2263FDA022ADAFBD00DAA01E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2263FD9F22ADAFBD00DAA01E /* Preview Assets.xcassets */; };
 		2263FDA322ADAFBD00DAA01E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2263FDA122ADAFBD00DAA01E /* LaunchScreen.storyboard */; };
-		2263FDAE22ADAFBD00DAA01E /* SwiftUI_RowDucks_Example_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263FDAD22ADAFBD00DAA01E /* SwiftUI_RowDucks_Example_AppTests.swift */; };
 		227A005A22AE311B00D1BA44 /* DataReducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227A005922AE311B00D1BA44 /* DataReducers.swift */; };
 		227A005C22AE312E00D1BA44 /* UIReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227A005B22AE312E00D1BA44 /* UIReducer.swift */; };
 		227A005E22AE315000D1BA44 /* DataActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227A005D22AE315000D1BA44 /* DataActions.swift */; };
 		227A006022AE3A4C00D1BA44 /* UIActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227A005F22AE3A4C00D1BA44 /* UIActions.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		2263FDAA22ADAFBD00DAA01E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2263FD8B22ADAFBC00DAA01E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2263FD9222ADAFBC00DAA01E;
-			remoteInfo = "SwiftUI-RowDucks-Example-App";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		223BEFBB22AE7C76009F0C63 /* Reducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
@@ -43,9 +32,6 @@
 		2263FD9F22ADAFBD00DAA01E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2263FDA222ADAFBD00DAA01E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2263FDA422ADAFBD00DAA01E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2263FDA922ADAFBD00DAA01E /* SwiftUI-RowDucks-Example-AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftUI-RowDucks-Example-AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2263FDAD22ADAFBD00DAA01E /* SwiftUI_RowDucks_Example_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_RowDucks_Example_AppTests.swift; sourceTree = "<group>"; };
-		2263FDAF22ADAFBD00DAA01E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		227A005922AE311B00D1BA44 /* DataReducers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataReducers.swift; sourceTree = "<group>"; };
 		227A005B22AE312E00D1BA44 /* UIReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIReducer.swift; sourceTree = "<group>"; };
 		227A005D22AE315000D1BA44 /* DataActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataActions.swift; sourceTree = "<group>"; };
@@ -54,13 +40,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		2263FD9022ADAFBC00DAA01E /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2263FDA622ADAFBD00DAA01E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -82,7 +61,6 @@
 			isa = PBXGroup;
 			children = (
 				2263FD9522ADAFBC00DAA01E /* SwiftUI-RowDucks-Example-App */,
-				2263FDAC22ADAFBD00DAA01E /* SwiftUI-RowDucks-Example-AppTests */,
 				2263FD9422ADAFBC00DAA01E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,7 +69,6 @@
 			isa = PBXGroup;
 			children = (
 				2263FD9322ADAFBC00DAA01E /* SwiftUI-RowDucks-Example-App.app */,
-				2263FDA922ADAFBD00DAA01E /* SwiftUI-RowDucks-Example-AppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,15 +97,6 @@
 				2263FD9F22ADAFBD00DAA01E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		2263FDAC22ADAFBD00DAA01E /* SwiftUI-RowDucks-Example-AppTests */ = {
-			isa = PBXGroup;
-			children = (
-				2263FDAD22ADAFBD00DAA01E /* SwiftUI_RowDucks_Example_AppTests.swift */,
-				2263FDAF22ADAFBD00DAA01E /* Info.plist */,
-			);
-			path = "SwiftUI-RowDucks-Example-AppTests";
 			sourceTree = "<group>";
 		};
 		227A005022AE309900D1BA44 /* Data */ = {
@@ -177,24 +145,6 @@
 			productReference = 2263FD9322ADAFBC00DAA01E /* SwiftUI-RowDucks-Example-App.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2263FDA822ADAFBD00DAA01E /* SwiftUI-RowDucks-Example-AppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2263FDB522ADAFBD00DAA01E /* Build configuration list for PBXNativeTarget "SwiftUI-RowDucks-Example-AppTests" */;
-			buildPhases = (
-				2263FDA522ADAFBD00DAA01E /* Sources */,
-				2263FDA622ADAFBD00DAA01E /* Frameworks */,
-				2263FDA722ADAFBD00DAA01E /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2263FDAB22ADAFBD00DAA01E /* PBXTargetDependency */,
-			);
-			name = "SwiftUI-RowDucks-Example-AppTests";
-			productName = "SwiftUI-RowDucks-Example-AppTests";
-			productReference = 2263FDA922ADAFBD00DAA01E /* SwiftUI-RowDucks-Example-AppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -207,10 +157,6 @@
 				TargetAttributes = {
 					2263FD9222ADAFBC00DAA01E = {
 						CreatedOnToolsVersion = 11.0;
-					};
-					2263FDA822ADAFBD00DAA01E = {
-						CreatedOnToolsVersion = 11.0;
-						TestTargetID = 2263FD9222ADAFBC00DAA01E;
 					};
 				};
 			};
@@ -228,7 +174,6 @@
 			projectRoot = "";
 			targets = (
 				2263FD9222ADAFBC00DAA01E /* SwiftUI-RowDucks-Example-App */,
-				2263FDA822ADAFBD00DAA01E /* SwiftUI-RowDucks-Example-AppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -241,13 +186,6 @@
 				2263FDA322ADAFBD00DAA01E /* LaunchScreen.storyboard in Resources */,
 				2263FDA022ADAFBD00DAA01E /* Preview Assets.xcassets in Resources */,
 				2263FD9D22ADAFBD00DAA01E /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2263FDA722ADAFBD00DAA01E /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,23 +208,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2263FDA522ADAFBD00DAA01E /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2263FDAE22ADAFBD00DAA01E /* SwiftUI_RowDucks_Example_AppTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2263FDAB22ADAFBD00DAA01E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2263FD9222ADAFBC00DAA01E /* SwiftUI-RowDucks-Example-App */;
-			targetProxy = 2263FDAA22ADAFBD00DAA01E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2263FDA122ADAFBD00DAA01E /* LaunchScreen.storyboard */ = {
@@ -454,48 +376,6 @@
 			};
 			name = Release;
 		};
-		2263FDB622ADAFBD00DAA01E /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D28ZTC888T;
-				INFOPLIST_FILE = "SwiftUI-RowDucks-Example-AppTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "au.com.timsawtell.swifuirowducks-example-app.SwiftUI-RowDucks-Example-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUI-RowDucks-Example-App.app/SwiftUI-RowDucks-Example-App";
-			};
-			name = Debug;
-		};
-		2263FDB722ADAFBD00DAA01E /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D28ZTC888T;
-				INFOPLIST_FILE = "SwiftUI-RowDucks-Example-AppTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "au.com.timsawtell.swifuirowducks-example-app.SwiftUI-RowDucks-Example-AppTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUI-RowDucks-Example-App.app/SwiftUI-RowDucks-Example-App";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -513,15 +393,6 @@
 			buildConfigurations = (
 				2263FDB322ADAFBD00DAA01E /* Debug */,
 				2263FDB422ADAFBD00DAA01E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2263FDB522ADAFBD00DAA01E /* Build configuration list for PBXNativeTarget "SwiftUI-RowDucks-Example-AppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2263FDB622ADAFBD00DAA01E /* Debug */,
-				2263FDB722ADAFBD00DAA01E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
