@@ -11,16 +11,34 @@ import SwiftUI
 struct ContentView : View {
     @ObjectBinding var store = storeInstance
     
-    func onTap() {
-        store.dispatch(action: .ChangeName)
+    func onTapName() {
+        store.dispatch(action: ChangeNameAction(newName: "Bob"))
+    }
+    
+    func onTapData() {
+        store.dispatch(action: AddAnotherItemAction())
     }
     
     var body: some View {
         VStack {
-            Text(store.state!.ui.name)
-            Button(action: onTap) {
-                Text("Change Name")
+            Text("First Name: \(store.state!.ui.name)")
+            Text("Last Name: \(store.state!.ui.otherName)")
+            
+            Button(action: onTapName) {
+                Text("Change First Name")
+                }.padding(10)
+            
+            Text("Other Data:")
+            HStack {
+                ForEach(store.state!.data.items) { item in
+                    Text(String(item))
+                }
             }
+            
+            Button(action: onTapData) {
+                Text("Insert more data")
+                }.padding(10)
+        
         }
     }
 }

@@ -22,27 +22,26 @@ struct DataReducer: Reducer {
 }
 
 struct DataItemsReducer: Reducer {
-    typealias responsibleData = [Int]
+    
+    typealias ResponsibleData = [Int]
     
     func reduce(state: [Int]?, action: Action) -> [Int] {
-        switch action {
-        case .Initialize:
-            return [1, 2, 3]
-        default:
-            return state ?? []
+        if let _ = action as? AddAnotherItemAction, state != nil {
+            var modified = state!
+            modified.append((modified.max())! + 1)
+            return modified
         }
+
+            return state ?? [1, 2, 3]
+        
     }
 }
 
 struct DataOtherItemsReducer: Reducer {
-    typealias responsibleData = [Int]
+    
+    typealias ResponsibleData = [Int]
     
     func reduce(state: [Int]?, action: Action) -> [Int] {
-        switch action {
-        case .Initialize:
-            return [4, 5, 6]
-        default:
-            return state ?? []
-        }
+        return state ?? [4, 5, 6]
     }
 }

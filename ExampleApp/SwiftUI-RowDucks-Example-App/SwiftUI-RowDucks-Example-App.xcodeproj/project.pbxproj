@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		223BEFBC22AE7C76009F0C63 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223BEFBB22AE7C76009F0C63 /* Reducer.swift */; };
+		223BEFC022AE7CB3009F0C63 /* DemoAppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223BEFBF22AE7CB3009F0C63 /* DemoAppStore.swift */; };
 		2263FD9722ADAFBC00DAA01E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263FD9622ADAFBC00DAA01E /* AppDelegate.swift */; };
 		2263FD9922ADAFBC00DAA01E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263FD9822ADAFBC00DAA01E /* SceneDelegate.swift */; };
 		2263FD9B22ADAFBC00DAA01E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263FD9A22ADAFBC00DAA01E /* ContentView.swift */; };
@@ -14,10 +16,10 @@
 		2263FDA022ADAFBD00DAA01E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2263FD9F22ADAFBD00DAA01E /* Preview Assets.xcassets */; };
 		2263FDA322ADAFBD00DAA01E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2263FDA122ADAFBD00DAA01E /* LaunchScreen.storyboard */; };
 		2263FDAE22ADAFBD00DAA01E /* SwiftUI_RowDucks_Example_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263FDAD22ADAFBD00DAA01E /* SwiftUI_RowDucks_Example_AppTests.swift */; };
-		2263FDB922ADAFF800DAA01E /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263FDB822ADAFF800DAA01E /* Store.swift */; };
-		2263FDBB22ADBF2600DAA01E /* Reducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263FDBA22ADBF2600DAA01E /* Reducers.swift */; };
-		2263FDBD22ADC6CD00DAA01E /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263FDBC22ADC6CD00DAA01E /* UI.swift */; };
-		2263FDBF22ADE14800DAA01E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263FDBE22ADE14800DAA01E /* Data.swift */; };
+		227A005A22AE311B00D1BA44 /* DataReducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227A005922AE311B00D1BA44 /* DataReducers.swift */; };
+		227A005C22AE312E00D1BA44 /* UIReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227A005B22AE312E00D1BA44 /* UIReducer.swift */; };
+		227A005E22AE315000D1BA44 /* DataActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227A005D22AE315000D1BA44 /* DataActions.swift */; };
+		227A006022AE3A4C00D1BA44 /* UIActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227A005F22AE3A4C00D1BA44 /* UIActions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		223BEFBB22AE7C76009F0C63 /* Reducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
+		223BEFBF22AE7CB3009F0C63 /* DemoAppStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAppStore.swift; sourceTree = "<group>"; };
 		2263FD9322ADAFBC00DAA01E /* SwiftUI-RowDucks-Example-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-RowDucks-Example-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2263FD9622ADAFBC00DAA01E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2263FD9822ADAFBC00DAA01E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,10 +46,10 @@
 		2263FDA922ADAFBD00DAA01E /* SwiftUI-RowDucks-Example-AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftUI-RowDucks-Example-AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2263FDAD22ADAFBD00DAA01E /* SwiftUI_RowDucks_Example_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_RowDucks_Example_AppTests.swift; sourceTree = "<group>"; };
 		2263FDAF22ADAFBD00DAA01E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2263FDB822ADAFF800DAA01E /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
-		2263FDBA22ADBF2600DAA01E /* Reducers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reducers.swift; sourceTree = "<group>"; };
-		2263FDBC22ADC6CD00DAA01E /* UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
-		2263FDBE22ADE14800DAA01E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		227A005922AE311B00D1BA44 /* DataReducers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataReducers.swift; sourceTree = "<group>"; };
+		227A005B22AE312E00D1BA44 /* UIReducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIReducer.swift; sourceTree = "<group>"; };
+		227A005D22AE315000D1BA44 /* DataActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataActions.swift; sourceTree = "<group>"; };
+		227A005F22AE3A4C00D1BA44 /* UIActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		223BEFBA22AE7C76009F0C63 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				223BEFBB22AE7C76009F0C63 /* Reducer.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
 		2263FD8A22ADAFBC00DAA01E = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +99,10 @@
 		2263FD9522ADAFBC00DAA01E /* SwiftUI-RowDucks-Example-App */ = {
 			isa = PBXGroup;
 			children = (
+				223BEFBA22AE7C76009F0C63 /* Library */,
+				227A005622AE30A700D1BA44 /* Store */,
+				227A005022AE309900D1BA44 /* Data */,
+				227A005222AE309900D1BA44 /* UI */,
 				2263FD9622ADAFBC00DAA01E /* AppDelegate.swift */,
 				2263FD9822ADAFBC00DAA01E /* SceneDelegate.swift */,
 				2263FD9A22ADAFBC00DAA01E /* ContentView.swift */,
@@ -94,10 +110,6 @@
 				2263FDA122ADAFBD00DAA01E /* LaunchScreen.storyboard */,
 				2263FDA422ADAFBD00DAA01E /* Info.plist */,
 				2263FD9E22ADAFBD00DAA01E /* Preview Content */,
-				2263FDB822ADAFF800DAA01E /* Store.swift */,
-				2263FDBA22ADBF2600DAA01E /* Reducers.swift */,
-				2263FDBC22ADC6CD00DAA01E /* UI.swift */,
-				2263FDBE22ADE14800DAA01E /* Data.swift */,
 			);
 			path = "SwiftUI-RowDucks-Example-App";
 			sourceTree = "<group>";
@@ -117,6 +129,32 @@
 				2263FDAF22ADAFBD00DAA01E /* Info.plist */,
 			);
 			path = "SwiftUI-RowDucks-Example-AppTests";
+			sourceTree = "<group>";
+		};
+		227A005022AE309900D1BA44 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				227A005922AE311B00D1BA44 /* DataReducers.swift */,
+				227A005D22AE315000D1BA44 /* DataActions.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		227A005222AE309900D1BA44 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				227A005B22AE312E00D1BA44 /* UIReducer.swift */,
+				227A005F22AE3A4C00D1BA44 /* UIActions.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		227A005622AE30A700D1BA44 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				223BEFBF22AE7CB3009F0C63 /* DemoAppStore.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,13 +258,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2263FDBF22ADE14800DAA01E /* Data.swift in Sources */,
+				227A005A22AE311B00D1BA44 /* DataReducers.swift in Sources */,
+				227A006022AE3A4C00D1BA44 /* UIActions.swift in Sources */,
+				223BEFC022AE7CB3009F0C63 /* DemoAppStore.swift in Sources */,
 				2263FD9722ADAFBC00DAA01E /* AppDelegate.swift in Sources */,
-				2263FDBB22ADBF2600DAA01E /* Reducers.swift in Sources */,
+				227A005C22AE312E00D1BA44 /* UIReducer.swift in Sources */,
 				2263FD9922ADAFBC00DAA01E /* SceneDelegate.swift in Sources */,
 				2263FD9B22ADAFBC00DAA01E /* ContentView.swift in Sources */,
-				2263FDB922ADAFF800DAA01E /* Store.swift in Sources */,
-				2263FDBD22ADC6CD00DAA01E /* UI.swift in Sources */,
+				223BEFBC22AE7C76009F0C63 /* Reducer.swift in Sources */,
+				227A005E22AE315000D1BA44 /* DataActions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
