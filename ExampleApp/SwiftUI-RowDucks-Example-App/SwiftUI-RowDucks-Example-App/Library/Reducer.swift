@@ -13,6 +13,11 @@ protocol Action {
     
 }
 
+protocol AsyncAction {
+    associatedtype MyStore
+    var closure: (MyStore) -> Void { get set }
+}
+
 /// Used when setting up the state so that the default values are applied
 struct InitAction: Action {}
 

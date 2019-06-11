@@ -19,6 +19,10 @@ struct ContentView : View {
         store.dispatch(action: AddAnotherItemAction())
     }
     
+    func onAsyncActionTap() {
+        store.dispatch(asyncAction: AsynchronouslyAddRandomItem())
+    }
+    
     var body: some View {
         VStack {
             Text("First Name: \(store.state.ui.name)")
@@ -28,8 +32,9 @@ struct ContentView : View {
                 Text("Change First Name")
                 }.padding(10)
             
-            Text("Other Data:")
-            HStack {
+            Text("Data Items:")
+            
+             HStack {
                 ForEach(store.state.data.items) { item in
                     Text(String(item))
                 }
@@ -38,7 +43,10 @@ struct ContentView : View {
             Button(action: onTapData) {
                 Text("Insert more data")
                 }.padding(10)
-        
+                    
+            Button(action: onAsyncActionTap) {
+                Text("Asynchronously insert more data")
+                }.padding(10)
         }
     }
 }

@@ -71,6 +71,10 @@ class Store: BindableObject {
         self.internalState = mainReducer.reduce(state: nil, action: InitAction())
     }
     
+    /// Grab a copy of `state`. Run your main reducer with this `action` and then
+    /// compare the new `state` against the old `state`. If there is a difference,
+    /// tell SwiftUI that it needs to layout its views again via the `BindableObject`
+    /// `didChange` function.
     func dispatch(action: Action) {
         let beforeState = state
         internalState = mainReducer.reduce(state: internalState, action: action)
@@ -78,6 +82,12 @@ class Store: BindableObject {
             // found that the state is different after that Action, notify subscribers
             didChange.send(state)
         }
+    }
+    
+    /// Run the `asyncAction`'s closure and pass in self, so that the closure can
+    /// then call `dispatch` on self (to actually make changes to the state)
+    func dispatch<T: AsyncAction>(asyncAction: T) {
+        asyncAction.closure(self as! T.MyStore)
     }
 }
 
