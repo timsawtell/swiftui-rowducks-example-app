@@ -21,8 +21,8 @@ struct ContentView : View {
     
     var body: some View {
         VStack {
-            Text("First Name: \(store.state!.ui.name)")
-            Text("Last Name: \(store.state!.ui.otherName)")
+            Text("First Name: \(store.state.ui.name)")
+            Text("Last Name: \(store.state.ui.otherName)")
             
             Button(action: onTapName) {
                 Text("Change First Name")
@@ -30,7 +30,7 @@ struct ContentView : View {
             
             Text("Other Data:")
             HStack {
-                ForEach(store.state!.data.items) { item in
+                ForEach(store.state.data.items) { item in
                     Text(String(item))
                 }
             }

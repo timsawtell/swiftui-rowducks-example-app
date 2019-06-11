@@ -51,26 +51,34 @@ struct DemoAppMainReducer : Reducer {
 }
 
 class Store: BindableObject {
-    var didChange = PassthroughSubject<DemoAppState?, Never>()
-    var state: DemoAppState?
-    var myReducer: DemoAppMainReducer?
+    /// Implement the `BindableObject` protocol 
+    internal var didChange = PassthroughSubject<DemoAppState, Never>()
     
-    class func createStore<T: Reducer>(_ reducer: T) -> Store {
-        let store: Store = Store()
-        // When setting up the store I reduce on the base `Action` struct, which has a `type` of `.Initialize`
-        store.state = reducer.reduce(state: nil, action: InitAction()) as? DemoAppState
-        store.myReducer = DemoAppMainReducer()
-        return store
+    /// The top most reducer for this Store
+    fileprivate var mainReducer = DemoAppMainReducer()
+    
+    /// Hide `internalState` from modifications by marking it as fileprivate
+    fileprivate var internalState: DemoAppState
+    
+    /// `state` is a read-only property that returns `internalState`. The rest of the app reads this.
+    var state: DemoAppState {
+        return internalState
+    }
+    
+    /// Let the `state` object get populated by the default values returned by all the reducers in
+    /// the `DemoAppMainReducer`'s `reduce` function call
+    init() {
+        self.internalState = mainReducer.reduce(state: nil, action: InitAction())
     }
     
     func dispatch(action: Action) {
         let beforeState = state
-        state = myReducer?.reduce(state: state, action: action)
-        if state != beforeState {
+        internalState = mainReducer.reduce(state: internalState, action: action)
+        if internalState != beforeState {
             // found that the state is different after that Action, notify subscribers
             didChange.send(state)
         }
     }
 }
 
-var storeInstance = Store.createStore(DemoAppMainReducer())
+var storeInstance = Store()
