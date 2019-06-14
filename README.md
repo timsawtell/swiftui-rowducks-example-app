@@ -5,6 +5,8 @@ Not to be confused with a completely unrelated, amazing state management library
 
 Example app shows how to create a store, use actions, compose your App's state via reducers, and finally how to wire that in to your SwiftUI View for automatic re-rendering
 
-![](https://i.imgur.com/yKA8Cou.gif)
+You dispatch actions (sync or async) to your store, and it will alter your state object by running your reducers. Then SwiftUI will automatically update your UI through the @ObjectBinding view property. 
 
-So much more to do, action creators, async dispatch support, middleware, tests, Swift package manager support etc.
+![](demo.gif)
+
+So much more to do, middleware, tests, Swift package manager support etc.
