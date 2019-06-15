@@ -10,25 +10,6 @@ import Foundation
 import Combine
 import SwiftUI
 
-struct DemoAppState: Equatable {
-    static func == (lhs: DemoAppState, rhs: DemoAppState) -> Bool {
-        return lhs.ui == rhs.ui && lhs.data == rhs.data
-    }
-    
-    var ui: UI
-    var data: Data
-}
-
-struct UI: Equatable {
-    var name: String
-    var otherName: String
-}
-
-struct Data: Equatable {
-    var items: [Int]
-    var otherItems: [Int]
-}
-
 /// The top most `Reducer` in the app. For every action that is dispatched, this is the reducer that is run.
 /// This reducer will shard off responsibility for it's various sections of the object graph to the
 /// appropriate reducer, i.e for the `UI` section of `DemoAppState`, it uses the resulting value of the
@@ -38,7 +19,7 @@ struct Data: Equatable {
 ///
 /// This gives the programmer the ability to shard off whole sections of the app `State` to separate swift
 /// files, maintained by different programmers, if you happen to work in a team.
-struct DemoAppMainReducer : Reducer {
+fileprivate struct DemoAppMainReducer : Reducer {
 
     typealias ResponsibleData = DemoAppState
     let uiReducer = UIReducer()
@@ -50,7 +31,7 @@ struct DemoAppMainReducer : Reducer {
     }
 }
 
-class Store: BindableObject {
+final class Store : BindableObject {
     /// Implement the `BindableObject` protocol 
     internal var didChange = PassthroughSubject<DemoAppState, Never>()
     
@@ -59,6 +40,9 @@ class Store: BindableObject {
     
     /// Hide `internalState` from modifications by marking it as fileprivate
     fileprivate var internalState: DemoAppState
+    
+    
+    var middleware: [BaseMiddleware]?
     
     /// `state` is a read-only property that returns `internalState`. The rest of the app reads this.
     var state: DemoAppState {
@@ -71,24 +55,43 @@ class Store: BindableObject {
         self.internalState = mainReducer.reduce(state: nil, action: InitAction())
     }
     
+    convenience init(middleware: [BaseMiddleware]) {
+        self.init()
+        self.middleware = middleware
+    }
+    
     /// Grab a copy of `state`. Run your main reducer with this `action` and then
     /// compare the new `state` against the old `state`. If there is a difference,
     /// tell SwiftUI that it needs to layout its views again via the `BindableObject`
     /// `didChange` function.
     func dispatch(action: Action) {
-        let beforeState = state
-        internalState = mainReducer.reduce(state: internalState, action: action)
-        if internalState != beforeState {
+        
+        let beforeState = self.state
+        self.internalState = self.mainReducer.reduce(state: self.internalState, action: action)
+        
+        /// let all the middleware execute their handlers
+        self.middleware?.forEach { middleware in
+            middleware.observeStateChange(withBeforeState: beforeState, afterState: self.state, action: action)
+        }
+        
+        if self.internalState != beforeState {
             // found that the state is different after that Action, notify subscribers
-            didChange.send(state)
+            self.didChange.send(self.state)
         }
     }
     
-    /// Run the `asyncAction`'s closure and pass in self, so that the closure can
+    /// Run the `asyncAction`'s closure and pass in `self`, so that the closure can
     /// then call `dispatch` on self (to actually make changes to the state)
     func dispatch<T: AsyncAction>(asyncAction: T) {
         asyncAction.closure(self as! T.MyStore)
     }
 }
 
-var storeInstance = Store()
+fileprivate let middleware = [
+    // Up to you what middleware to use - these are just examples of what an app
+    // might us
+    LoggerMiddleware(),
+    TrackingMiddleware()
+]
+
+var storeInstance = Store(middleware: middleware)

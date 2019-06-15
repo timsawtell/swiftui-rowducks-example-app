@@ -26,10 +26,13 @@ struct DataItemsReducer: Reducer {
     typealias ResponsibleData = [Int]
     
     func reduce(state: [Int]?, action: Action) -> [Int] {
-        if let _ = action as? AddAnotherItemAction, state != nil {
+        switch action {
+        case is AddAnotherItemAction:
             var modified = state!
             modified.append((modified.max())! + 1)
             return modified
+        default:
+            break
         }
 
         return state ?? [1, 2, 3]

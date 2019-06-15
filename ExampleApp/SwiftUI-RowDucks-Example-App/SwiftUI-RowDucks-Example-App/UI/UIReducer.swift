@@ -34,14 +34,15 @@ struct UINameReducer: Reducer {
     
     func reduce(state: String?, action: Action) -> String {
         
-        // The ChangeNameAction has an affect on the `name` string of the UI struct
-        if let action = action as? ChangeNameAction {
-            return action.newName
+        switch action {
+        case is ChangeNameAction:
+            // The ChangeNameAction has an affect on the `name` string of the UI struct
+            return (action as! ChangeNameAction).newName
+        default:
+            // Just return state (i.e. don't modify the value) - and if state is nil, return
+            // the default value. Up to the programmer to determine what that is.
+            return state ?? "Tim"
         }
-        
-        // Just return state (i.e. don't modify the value) - and if state is nil, return
-        // the default value. Up to the programmer to determine what that is.
-        return state ?? "Tim"
     }
 }
 

@@ -8,5 +8,3 @@ Example app shows how to create a store, use actions, compose your App's state v
 You dispatch actions (sync or async) to your store, and it will alter your state object by running your reducers. Then SwiftUI will automatically update your UI through the @ObjectBinding view property. 
 
 ![](demo.gif)
-
-So much more to do, middleware, tests, Swift package manager support etc.

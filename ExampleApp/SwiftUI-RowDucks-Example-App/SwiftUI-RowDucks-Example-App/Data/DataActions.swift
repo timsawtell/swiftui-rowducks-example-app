@@ -11,7 +11,7 @@ import Foundation
 struct AddAnotherItemAction : Action {
 }
 
-class AsynchronouslyAddRandomItem: AsyncAction {   
+class AsynchronouslyAddRandomItem: AsyncAction {
     typealias MyStore = Store
     
     var closure: (MyStore) -> Void = { store in
