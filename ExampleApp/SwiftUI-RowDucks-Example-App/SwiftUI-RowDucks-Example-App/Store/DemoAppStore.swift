@@ -33,7 +33,7 @@ fileprivate struct DemoAppMainReducer : Reducer {
 
 final class Store : BindableObject {
     /// Implement the `BindableObject` protocol 
-    internal var didChange = PassthroughSubject<DemoAppState, Never>()
+    var didChange = PassthroughSubject<DemoAppState, Never>()
     
     /// The top most reducer for this Store
     fileprivate var mainReducer = DemoAppMainReducer()
