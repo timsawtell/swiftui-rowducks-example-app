@@ -41,7 +41,6 @@ final class Store : BindableObject {
     /// Hide `internalState` from modifications by marking it as fileprivate
     fileprivate var internalState: DemoAppState
     
-    
     var middleware: [BaseMiddleware]?
     
     /// `state` is a read-only property that returns `internalState`. The rest of the app reads this.
@@ -66,17 +65,17 @@ final class Store : BindableObject {
     /// `didChange` function.
     func dispatch(action: Action) {
         
-        let beforeState = self.state
-        self.internalState = self.mainReducer.reduce(state: self.internalState, action: action)
+        let beforeState = state
+        internalState = mainReducer.reduce(state: internalState, action: action)
         
         /// let all the middleware execute their handlers
-        self.middleware?.forEach { middleware in
-            middleware.observeStateChange(withBeforeState: beforeState, afterState: self.state, action: action)
+        middleware?.forEach { middleware in
+            middleware.observeStateChange(withBeforeState: beforeState, afterState: state, action: action)
         }
         
-        if self.internalState != beforeState {
+        if internalState != beforeState {
             // found that the state is different after that Action, notify subscribers
-            self.didChange.send(self.state)
+            didChange.send(state)
         }
     }
     

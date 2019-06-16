@@ -81,8 +81,8 @@ extension NamesViewModelMapper: Subscriber {
     }
     
     func receive(subscription: Subscription) {
-        self.subscription = subscription
-        self.subscription?.request(.unlimited)
+        subscription = subscription
+        subscription?.request(.unlimited)
     }
     
     func receive(completion: Subscribers.Completion<Never>) { }
