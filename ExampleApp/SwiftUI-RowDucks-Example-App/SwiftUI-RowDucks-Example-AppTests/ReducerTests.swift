@@ -49,8 +49,11 @@ class ReducerTests: XCTestCase {
     func testMyOwnMiddlware() {
         let middleware = TestMiddleware(owner: self)
         let testStore = Store(middleware: [middleware])
-        testStore.dispatch(action: TestAction())
+        
         // if the middlware worked then it should have changed this property to be true
+        
+        XCTAssertFalse(changeMe)
+        testStore.dispatch(action: TestAction())
         XCTAssertTrue(changeMe)
     }
 }

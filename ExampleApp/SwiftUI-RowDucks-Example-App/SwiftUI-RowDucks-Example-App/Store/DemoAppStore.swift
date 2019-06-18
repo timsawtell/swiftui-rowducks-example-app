@@ -44,7 +44,7 @@ final class Store : BindableObject {
     var middleware: [BaseMiddleware]?
     
     /// `state` is a read-only property that returns `internalState`. The rest of the app reads this.
-    var state: DemoAppState {
+    @Eqauatable var state: DemoAppState {
         return internalState
     }
     
@@ -68,7 +68,7 @@ final class Store : BindableObject {
         let beforeState = state
         internalState = mainReducer.reduce(state: internalState, action: action)
         
-        /// let all the middleware execute their handlers
+        // let all the middleware execute their handlers
         middleware?.forEach { middleware in
             middleware.observeStateChange(withBeforeState: beforeState, afterState: state, action: action)
         }

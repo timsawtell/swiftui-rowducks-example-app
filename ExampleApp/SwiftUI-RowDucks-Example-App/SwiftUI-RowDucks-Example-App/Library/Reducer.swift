@@ -35,3 +35,8 @@ protocol Reducer {
     /// to happen, your reducer will return a new `state` based on your rules
     func reduce(state: ResponsibleData?, action: Action) -> ResponsibleData
 }
+
+/// Force the property to conform to the Equatable protocol
+@propertyDelegate struct Eqauatable<Value: Equatable> {
+    public var value: Value?
+}

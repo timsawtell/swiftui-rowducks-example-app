@@ -55,7 +55,7 @@ struct ItemsViewModel: Equatable {
 class ItemsViewModelMapper : BindableObject {
     var viewModel: ItemsViewModel = ItemsViewModel(itemsString: "")
     var didChange = PassthroughSubject<ItemsViewModel, Never>()
-    var subscription: Subscription?
+    var storeSubscription: Subscription?
     var store: Store {
         return storeInstance
     }
@@ -97,8 +97,8 @@ extension ItemsViewModelMapper: Subscriber {
     }
     
     func receive(subscription: Subscription) {
-        subscription = subscription
-        subscription?.request(.unlimited)
+        storeSubscription = subscription
+        storeSubscription?.request(.unlimited)
     }
     
     func receive(completion: Subscribers.Completion<Never>) {}

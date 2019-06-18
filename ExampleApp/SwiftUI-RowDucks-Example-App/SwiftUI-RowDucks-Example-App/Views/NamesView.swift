@@ -46,7 +46,7 @@ struct NamesViewModel: Equatable {
 class NamesViewModelMapper : BindableObject {
     var viewModel = NamesViewModel(firstName: "", lastName: "")
     var didChange = PassthroughSubject<NamesViewModel, Never>()
-    var subscription: Subscription?
+    var storeSubscription: Subscription?
     var store: Store {
         return storeInstance
     }
@@ -81,8 +81,8 @@ extension NamesViewModelMapper: Subscriber {
     }
     
     func receive(subscription: Subscription) {
-        subscription = subscription
-        subscription?.request(.unlimited)
+        storeSubscription = subscription
+        storeSubscription?.request(.unlimited)
     }
     
     func receive(completion: Subscribers.Completion<Never>) { }

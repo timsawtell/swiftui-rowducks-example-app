@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2202A5A822B4C9690024FCB1 /* DemoAppMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202A5A722B4C9690024FCB1 /* DemoAppMiddleware.swift */; };
 		2202A5AA22B4D3400024FCB1 /* DemoAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202A5A922B4D3400024FCB1 /* DemoAppState.swift */; };
-		2202A5B422B4F18B0024FCB1 /* SwiftUI_RowDucks_Example_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202A5B322B4F18B0024FCB1 /* SwiftUI_RowDucks_Example_AppTests.swift */; };
 		2202A5BC22B4F1AA0024FCB1 /* ReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202A5BB22B4F1AA0024FCB1 /* ReducerTests.swift */; };
 		2202A5C322B5A0430024FCB1 /* ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202A5C222B5A0430024FCB1 /* ItemsView.swift */; };
 		223BEFBC22AE7C76009F0C63 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223BEFBB22AE7C76009F0C63 /* Reducer.swift */; };
@@ -42,7 +41,6 @@
 		2202A5A722B4C9690024FCB1 /* DemoAppMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppMiddleware.swift; sourceTree = "<group>"; };
 		2202A5A922B4D3400024FCB1 /* DemoAppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppState.swift; sourceTree = "<group>"; };
 		2202A5B122B4F18B0024FCB1 /* SwiftUI-RowDucks-Example-AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftUI-RowDucks-Example-AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2202A5B322B4F18B0024FCB1 /* SwiftUI_RowDucks_Example_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_RowDucks_Example_AppTests.swift; sourceTree = "<group>"; };
 		2202A5B522B4F18B0024FCB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2202A5BB22B4F1AA0024FCB1 /* ReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducerTests.swift; sourceTree = "<group>"; };
 		2202A5C222B5A0430024FCB1 /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 		2202A5B222B4F18B0024FCB1 /* SwiftUI-RowDucks-Example-AppTests */ = {
 			isa = PBXGroup;
 			children = (
-				2202A5B322B4F18B0024FCB1 /* SwiftUI_RowDucks_Example_AppTests.swift */,
 				2202A5B522B4F18B0024FCB1 /* Info.plist */,
 				2202A5BB22B4F1AA0024FCB1 /* ReducerTests.swift */,
 			);
@@ -285,7 +282,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2202A5BC22B4F1AA0024FCB1 /* ReducerTests.swift in Sources */,
-				2202A5B422B4F18B0024FCB1 /* SwiftUI_RowDucks_Example_AppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
