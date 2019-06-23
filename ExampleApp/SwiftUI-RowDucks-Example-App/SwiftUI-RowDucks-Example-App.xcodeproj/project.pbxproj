@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,16 +11,15 @@
 		2202A5AA22B4D3400024FCB1 /* DemoAppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202A5A922B4D3400024FCB1 /* DemoAppState.swift */; };
 		2202A5BC22B4F1AA0024FCB1 /* ReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202A5BB22B4F1AA0024FCB1 /* ReducerTests.swift */; };
 		2202A5C322B5A0430024FCB1 /* ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2202A5C222B5A0430024FCB1 /* ItemsView.swift */; };
-		223BEFBC22AE7C76009F0C63 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223BEFBB22AE7C76009F0C63 /* Reducer.swift */; };
 		223BEFC022AE7CB3009F0C63 /* DemoAppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223BEFBF22AE7CB3009F0C63 /* DemoAppStore.swift */; };
 		223E236F22B5ACDF00DB5055 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223E236E22B5ACDF00DB5055 /* ContentView.swift */; };
 		223E237122B5B3EE00DB5055 /* NamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223E237022B5B3EE00DB5055 /* NamesView.swift */; };
-		223EC9AB22B4C2D1006C36AE /* Middleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223EC9AA22B4C2D1006C36AE /* Middleware.swift */; };
 		2263FD9722ADAFBC00DAA01E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263FD9622ADAFBC00DAA01E /* AppDelegate.swift */; };
 		2263FD9922ADAFBC00DAA01E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2263FD9822ADAFBC00DAA01E /* SceneDelegate.swift */; };
 		2263FD9D22ADAFBD00DAA01E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2263FD9C22ADAFBD00DAA01E /* Assets.xcassets */; };
 		2263FDA022ADAFBD00DAA01E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2263FD9F22ADAFBD00DAA01E /* Preview Assets.xcassets */; };
 		2263FDA322ADAFBD00DAA01E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2263FDA122ADAFBD00DAA01E /* LaunchScreen.storyboard */; };
+		2265627622BF05E50030D5AD /* SwiftUI-RowDucks in Frameworks */ = {isa = PBXBuildFile; productRef = 2265627522BF05E50030D5AD /* SwiftUI-RowDucks */; };
 		227A005A22AE311B00D1BA44 /* DataReducers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227A005922AE311B00D1BA44 /* DataReducers.swift */; };
 		227A005C22AE312E00D1BA44 /* UIReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227A005B22AE312E00D1BA44 /* UIReducer.swift */; };
 		227A005E22AE315000D1BA44 /* DataActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227A005D22AE315000D1BA44 /* DataActions.swift */; };
@@ -44,11 +43,9 @@
 		2202A5B522B4F18B0024FCB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2202A5BB22B4F1AA0024FCB1 /* ReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducerTests.swift; sourceTree = "<group>"; };
 		2202A5C222B5A0430024FCB1 /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
-		223BEFBB22AE7C76009F0C63 /* Reducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
 		223BEFBF22AE7CB3009F0C63 /* DemoAppStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAppStore.swift; sourceTree = "<group>"; };
 		223E236E22B5ACDF00DB5055 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		223E237022B5B3EE00DB5055 /* NamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesView.swift; sourceTree = "<group>"; };
-		223EC9AA22B4C2D1006C36AE /* Middleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middleware.swift; sourceTree = "<group>"; };
 		2263FD9322ADAFBC00DAA01E /* SwiftUI-RowDucks-Example-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-RowDucks-Example-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2263FD9622ADAFBC00DAA01E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2263FD9822ADAFBC00DAA01E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2265627622BF05E50030D5AD /* SwiftUI-RowDucks in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,15 +97,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		223BEFBA22AE7C76009F0C63 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-				223BEFBB22AE7C76009F0C63 /* Reducer.swift */,
-				223EC9AA22B4C2D1006C36AE /* Middleware.swift */,
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
 		2263FD8A22ADAFBC00DAA01E = {
 			isa = PBXGroup;
 			children = (
@@ -130,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				2202A5BD22B4FCBA0024FCB1 /* Views */,
-				223BEFBA22AE7C76009F0C63 /* Library */,
 				227A005622AE30A700D1BA44 /* Store */,
 				227A005022AE309900D1BA44 /* Data */,
 				227A005222AE309900D1BA44 /* UI */,
@@ -214,6 +202,9 @@
 			dependencies = (
 			);
 			name = "SwiftUI-RowDucks-Example-App";
+			packageProductDependencies = (
+				2265627522BF05E50030D5AD /* SwiftUI-RowDucks */,
+			);
 			productName = "SwiftUI-RowDucks-Example-App";
 			productReference = 2263FD9322ADAFBC00DAA01E /* SwiftUI-RowDucks-Example-App.app */;
 			productType = "com.apple.product-type.application";
@@ -246,6 +237,9 @@
 				Base,
 			);
 			mainGroup = 2263FD8A22ADAFBC00DAA01E;
+			packageReferences = (
+				2265627422BF05E50030D5AD /* XCRemoteSwiftPackageReference "swiftui-rowducks" */,
+			);
 			productRefGroup = 2263FD9422ADAFBC00DAA01E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -296,12 +290,10 @@
 				2202A5AA22B4D3400024FCB1 /* DemoAppState.swift in Sources */,
 				2202A5A822B4C9690024FCB1 /* DemoAppMiddleware.swift in Sources */,
 				227A005C22AE312E00D1BA44 /* UIReducer.swift in Sources */,
-				223EC9AB22B4C2D1006C36AE /* Middleware.swift in Sources */,
 				2202A5C322B5A0430024FCB1 /* ItemsView.swift in Sources */,
 				2263FD9922ADAFBC00DAA01E /* SceneDelegate.swift in Sources */,
 				223E236F22B5ACDF00DB5055 /* ContentView.swift in Sources */,
 				223E237122B5B3EE00DB5055 /* NamesView.swift in Sources */,
-				223BEFBC22AE7C76009F0C63 /* Reducer.swift in Sources */,
 				227A005E22AE315000D1BA44 /* DataActions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +545,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2265627422BF05E50030D5AD /* XCRemoteSwiftPackageReference "swiftui-rowducks" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/timsawtell/swiftui-rowducks.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2265627522BF05E50030D5AD /* SwiftUI-RowDucks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2265627422BF05E50030D5AD /* XCRemoteSwiftPackageReference "swiftui-rowducks" */;
+			productName = "SwiftUI-RowDucks";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2263FD8B22ADAFBC00DAA01E /* Project object */;
 }

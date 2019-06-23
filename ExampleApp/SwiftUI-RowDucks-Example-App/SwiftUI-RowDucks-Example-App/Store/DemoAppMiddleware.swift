@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI_RowDucks
 
 class BaseMiddleware: MiddlewareItem {
     func observeStateChange(withBeforeState beforeState: DemoAppState, afterState: DemoAppState, action: Action) {

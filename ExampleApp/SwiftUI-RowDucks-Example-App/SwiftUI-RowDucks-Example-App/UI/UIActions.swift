@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI_RowDucks
 
 struct ChangeNameAction : Action {
     var newName: String

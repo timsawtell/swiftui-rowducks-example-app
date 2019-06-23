@@ -9,6 +9,15 @@
 import Foundation
 import Combine
 import SwiftUI
+import SwiftUI_RowDucks
+
+/// Force the property to conform to the Equatable protocol
+@propertyDelegate struct SwiftUIEquatable<Value: Equatable> {
+    public var value: Value?
+}
+
+/// Used when setting up the state so that the default values are applied
+struct InitAction: Action {}
 
 /// The top most `Reducer` in the app. For every action that is dispatched, this is the reducer that is run.
 /// This reducer will shard off responsibility for it's various sections of the object graph to the
@@ -44,7 +53,7 @@ final class Store : BindableObject {
     var middleware: [BaseMiddleware]?
     
     /// `state` is a read-only property that returns `internalState`. The rest of the app reads this.
-    @Eqauatable var state: DemoAppState {
+    @SwiftUIEquatable var state: DemoAppState {
         return internalState
     }
     

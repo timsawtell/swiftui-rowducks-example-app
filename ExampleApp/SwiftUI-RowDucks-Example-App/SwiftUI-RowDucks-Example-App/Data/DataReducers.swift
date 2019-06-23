@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI_RowDucks
 
 struct DataReducer: Reducer {
     typealias ResponsibleData = Data
