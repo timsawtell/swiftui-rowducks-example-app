@@ -11,7 +11,7 @@ import Combine
 
 struct ItemsView : View {
     
-    @ObjectBinding var provider = viewModelMapperInstance
+    @ObjectBinding var provider = ItemsViewModelMapper()
     
     func onTapData() {
         provider.store.dispatch(action: AddAnotherItemAction())
@@ -63,9 +63,9 @@ class ItemsViewModelMapper : BindableObject {
     init() {
         // make this instance _care_ about the store changing state by subscribing
         // to it's `PassthroughSubject`
-        storeInstance.didChange.subscribe(self)
+        store.didChange.subscribe(self)
         // establish the view model based on the current app state
-        mapStateToViewModel(storeInstance.state)
+        mapStateToViewModel(store.state)
     }
 }
 
@@ -103,5 +103,3 @@ extension ItemsViewModelMapper: Subscriber {
     
     func receive(completion: Subscribers.Completion<Never>) {}
 }
-
-fileprivate let viewModelMapperInstance = ItemsViewModelMapper()

@@ -43,6 +43,7 @@
 		2202A5B522B4F18B0024FCB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2202A5BB22B4F1AA0024FCB1 /* ReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReducerTests.swift; sourceTree = "<group>"; };
 		2202A5C222B5A0430024FCB1 /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
+		2218F91022BF49E200CB3040 /* SwiftUI-RowDucks-Example-App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SwiftUI-RowDucks-Example-App.entitlements"; sourceTree = "<group>"; };
 		223BEFBF22AE7CB3009F0C63 /* DemoAppStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAppStore.swift; sourceTree = "<group>"; };
 		223E236E22B5ACDF00DB5055 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		223E237022B5B3EE00DB5055 /* NamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamesView.swift; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 		2263FD9522ADAFBC00DAA01E /* SwiftUI-RowDucks-Example-App */ = {
 			isa = PBXGroup;
 			children = (
+				2218F91022BF49E200CB3040 /* SwiftUI-RowDucks-Example-App.entitlements */,
 				2202A5BD22B4FCBA0024FCB1 /* Views */,
 				227A005622AE30A700D1BA44 /* Store */,
 				227A005022AE309900D1BA44 /* Data */,
@@ -478,7 +480,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SwiftUI-RowDucks-Example-App/SwiftUI-RowDucks-Example-App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "SwiftUI-RowDucks-Example-App/Preview\\ Content";
 				DEVELOPMENT_TEAM = D28ZTC888T;
 				ENABLE_PREVIEWS = YES;
@@ -489,6 +493,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.timsawtell.swifuirowducks-example-app.SwiftUI-RowDucks-Example-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -498,7 +503,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "SwiftUI-RowDucks-Example-App/SwiftUI-RowDucks-Example-App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_UIKITFORMAC_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "SwiftUI-RowDucks-Example-App/Preview\\ Content";
 				DEVELOPMENT_TEAM = D28ZTC888T;
 				ENABLE_PREVIEWS = YES;
@@ -509,6 +516,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "au.com.timsawtell.swifuirowducks-example-app.SwiftUI-RowDucks-Example-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_UIKITFORMAC = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

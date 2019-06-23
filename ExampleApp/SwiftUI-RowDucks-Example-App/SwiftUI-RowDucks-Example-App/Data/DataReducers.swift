@@ -12,12 +12,9 @@ import SwiftUI_RowDucks
 struct DataReducer: Reducer {
     typealias ResponsibleData = Data
     
-    var itemsReducer = DataItemsReducer()
-    var otherItemsReducer = DataOtherItemsReducer()
-    
-    func reduce(state: Data?, action: Action) -> Data {
-        let items = itemsReducer.reduce(state: state?.items, action: action)
-        let otherItems = otherItemsReducer.reduce(state: state?.otherItems, action: action)
+    static func reduce(state: Data?, action: Action) -> Data {
+        let items = DataItemsReducer.reduce(state: state?.items, action: action)
+        let otherItems = DataOtherItemsReducer.reduce(state: state?.otherItems, action: action)
         return Data(items: items, otherItems: otherItems)
     }
 }
@@ -26,7 +23,7 @@ struct DataItemsReducer: Reducer {
     
     typealias ResponsibleData = [Int]
     
-    func reduce(state: [Int]?, action: Action) -> [Int] {
+    static func reduce(state: [Int]?, action: Action) -> [Int] {
         switch action {
         case is AddAnotherItemAction:
             var modified = state!
@@ -44,7 +41,7 @@ struct DataOtherItemsReducer: Reducer {
     
     typealias ResponsibleData = [Int]
     
-    func reduce(state: [Int]?, action: Action) -> [Int] {
+    static func reduce(state: [Int]?, action: Action) -> [Int] {
         return state ?? [4, 5, 6]
     }
 }

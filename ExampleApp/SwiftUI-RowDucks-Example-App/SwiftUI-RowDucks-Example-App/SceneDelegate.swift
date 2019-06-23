@@ -19,7 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Use a UIHostingController as window root view controller
+        
+        #if targetEnvironment(UIKitForMac)
+        let windowScene = UIWindowScene(session: session, connectionOptions: connectionOptions)
+        let window = UIWindow(windowScene: windowScene)
+        #else
         let window = UIWindow(frame: UIScreen.main.bounds)
+        #endif
         window.rootViewController = UIHostingController(rootView: ContentView())
         self.window = window
         window.makeKeyAndVisible()

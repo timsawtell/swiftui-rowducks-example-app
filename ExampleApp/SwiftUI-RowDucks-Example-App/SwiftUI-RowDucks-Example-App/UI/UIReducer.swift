@@ -12,10 +12,7 @@ import SwiftUI_RowDucks
 struct UIReducer: Reducer {
     typealias ResponsibleData = UI
     
-    var nameReducer = UINameReducer()
-    var otherNameReducer = UIOtherNameReducer()
-    
-    func reduce(state: UI?, action: Action) -> UI {
+    static func reduce(state: UI?, action: Action) -> UI {
         
         // Because I want fine-grained control over this `UI` struct's value, I will
         // run reducers on each entity in the `UI` struct.
@@ -23,8 +20,8 @@ struct UIReducer: Reducer {
         // return it - but I defer to other reducers (UINameReducer, UIOtherNameReducer)
         // to illustrate that you can compose the result for a reduce function by calling
         // other dedicated reducers.
-        let name = nameReducer.reduce(state: state?.name, action: action)
-        let otherName = otherNameReducer.reduce(state: state?.otherName, action: action)
+        let name = UINameReducer.reduce(state: state?.name, action: action)
+        let otherName = UIOtherNameReducer.reduce(state: state?.otherName, action: action)
         
         return UI(name: name, otherName: otherName)
     }
@@ -33,7 +30,7 @@ struct UIReducer: Reducer {
 struct UINameReducer: Reducer {
     typealias ResponsibleData = String
     
-    func reduce(state: String?, action: Action) -> String {
+    static func reduce(state: String?, action: Action) -> String {
         
         switch action {
         case is ChangeNameAction:
@@ -50,7 +47,7 @@ struct UINameReducer: Reducer {
 struct UIOtherNameReducer: Reducer {
     typealias ResponsibleData = String
     
-    func reduce(state: String?, action: Action) -> String {
+    static func reduce(state: String?, action: Action) -> String {
         return state ?? "Sawtell"
     }
 }

@@ -13,7 +13,7 @@ import SwiftUI_RowDucks
 
 /// Force the property to conform to the Equatable protocol
 @propertyDelegate struct SwiftUIEquatable<Value: Equatable> {
-    public var value: Value?
+    public var value: Value!
 }
 
 /// Used when setting up the state so that the default values are applied
@@ -31,12 +31,10 @@ struct InitAction: Action {}
 fileprivate struct DemoAppMainReducer : Reducer {
 
     typealias ResponsibleData = DemoAppState
-    let uiReducer = UIReducer()
-    let dataReducer = DataReducer()
     
-    func reduce(state: DemoAppState?, action: Action) -> DemoAppState {
-        return DemoAppState(ui: uiReducer.reduce(state: state?.ui, action: action),
-                            data: dataReducer.reduce(state: state?.data, action: action))
+    static func reduce(state: DemoAppState?, action: Action) -> DemoAppState {
+        return DemoAppState(ui: UIReducer.reduce(state: state?.ui, action: action),
+                            data: DataReducer.reduce(state: state?.data, action: action))
     }
 }
 
@@ -44,23 +42,13 @@ final class Store : BindableObject {
     /// Implement the `BindableObject` protocol 
     var didChange = PassthroughSubject<DemoAppState, Never>()
     
-    /// The top most reducer for this Store
-    fileprivate var mainReducer = DemoAppMainReducer()
+    /// The whole app's single `state` entity
+    @SwiftUIEquatable fileprivate(set) var state: DemoAppState
     
-    /// Hide `internalState` from modifications by marking it as fileprivate
-    fileprivate var internalState: DemoAppState
+    fileprivate var middleware: [BaseMiddleware]?
     
-    var middleware: [BaseMiddleware]?
-    
-    /// `state` is a read-only property that returns `internalState`. The rest of the app reads this.
-    @SwiftUIEquatable var state: DemoAppState {
-        return internalState
-    }
-    
-    /// Let the `state` object get populated by the default values returned by all the reducers in
-    /// the `DemoAppMainReducer`'s `reduce` function call
     init() {
-        self.internalState = mainReducer.reduce(state: nil, action: InitAction())
+        self.state = DemoAppMainReducer.reduce(state: nil, action: InitAction())
     }
     
     convenience init(middleware: [BaseMiddleware]) {
@@ -75,14 +63,14 @@ final class Store : BindableObject {
     func dispatch(action: Action) {
         
         let beforeState = state
-        internalState = mainReducer.reduce(state: internalState, action: action)
+        state = DemoAppMainReducer.reduce(state: state, action: action)
         
         // let all the middleware execute their handlers
         middleware?.forEach { middleware in
             middleware.observeStateChange(withBeforeState: beforeState, afterState: state, action: action)
         }
         
-        if internalState != beforeState {
+        if state != beforeState {
             // found that the state is different after that Action, notify subscribers
             didChange.send(state)
         }
