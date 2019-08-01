@@ -54,8 +54,7 @@ struct ItemsViewModel: Equatable {
 /// Turn the global state object into a single View Model publisher
 class ItemsViewModelMapper : ObservableObject {
     @Published var viewModel: ItemsViewModel = ItemsViewModel(itemsString: "")
-   
-    var storeSubscription: Subscription?
+    private var storeSubscription: Subscription?
     var store: Store {
         return storeInstance
     }
@@ -66,6 +65,20 @@ class ItemsViewModelMapper : ObservableObject {
         store.objectWillChange.subscribe(self)
         // establish the view model based on the current app state
         mapStateToViewModel(store.state)
+    }
+    
+    func mapStateToViewModel(_ input: DemoAppState) {
+        var string: String = input.data.items.reduce("", { x, y in
+            x + String(y) + ", "
+        })
+        string.removeLast(2)
+        
+        // only change viewModel if it's different to the previous value (reduce number or renders)
+        let attemptedNewModel = ItemsViewModel(itemsString: string)
+        if (attemptedNewModel != viewModel) {
+            // change the value of the `@Publish`ed viewModel property, which will cause Observers (the View) to re-render
+            viewModel = attemptedNewModel
+        }
     }
 }
 
@@ -79,15 +92,6 @@ extension ItemsViewModelMapper: Subscriber {
     func receive(_ input: DemoAppState) -> Subscribers.Demand {
         mapStateToViewModel(input)
         return .unlimited
-    }
-    
-    func mapStateToViewModel(_ input: DemoAppState) {
-        var string: String = input.data.items.reduce("", { x, y in
-            x + String(y) + ", "
-        })
-        string.removeLast(2)
-        
-        viewModel = ItemsViewModel(itemsString: string)
     }
     
     func receive(subscription: Subscription) {

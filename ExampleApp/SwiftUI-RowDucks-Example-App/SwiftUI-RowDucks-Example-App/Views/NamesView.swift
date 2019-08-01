@@ -45,7 +45,7 @@ struct NamesViewModel: Equatable {
 /// Turn the global state object into a single View Model publisher
 class NamesViewModelMapper : ObservableObject {
     @Published var viewModel = NamesViewModel(firstName: "", lastName: "")
-    var storeSubscription: Subscription?
+    private var storeSubscription: Subscription?
     var store: Store {
         return storeInstance
     }
@@ -57,6 +57,15 @@ class NamesViewModelMapper : ObservableObject {
         // establish the view model based on the current app state
         mapStateToViewModel(store.state)
     }
+    
+    func mapStateToViewModel(_ input: DemoAppState) {
+        // only change viewModel if it's different to the previous value (reduce number or renders)
+        let attemptedNewModel = NamesViewModel(firstName: input.ui.name, lastName: input.ui.otherName)
+        if (attemptedNewModel != viewModel) {
+            // change the value of the `@Publish`ed viewModel property, which will cause Observers (the View) to re-render
+            viewModel = attemptedNewModel
+        }
+    }
 }
 
 extension NamesViewModelMapper: Subscriber {
@@ -64,15 +73,10 @@ extension NamesViewModelMapper: Subscriber {
     typealias Failure = Never
     
     /// Turn the whole state object into a tiny little view model, and then
-    /// publish a change to any of _my_ subscribers via my own `didChange`
-    /// call
+    /// publish a change to any of _my_ subscribers in `mapStateToViewModel(input: DemoAppState)`
     func receive(_ input: DemoAppState) -> Subscribers.Demand {
         mapStateToViewModel(input)
         return .unlimited
-    }
-    
-    func mapStateToViewModel(_ input: DemoAppState) {
-        viewModel = NamesViewModel(firstName: input.ui.name, lastName: input.ui.otherName)
     }
     
     func receive(subscription: Subscription) {
