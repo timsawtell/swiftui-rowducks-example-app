@@ -12,7 +12,7 @@ import SwiftUI
 import SwiftUI_RowDucks
 
 /// Force the property to conform to the Equatable protocol
-@propertyWrapper struct SwiftUIEquatable<Value: Equatable> {
+@propertyWrapper struct ForcedEquatable<Value: Equatable> {
     public var wrappedValue: Value
 }
 
@@ -43,7 +43,7 @@ final class Store : ObservableObject {
     var objectWillChange = PassthroughSubject<DemoAppState, Never>()
     
     /// The whole app's single `state` entity
-    @SwiftUIEquatable fileprivate(set) var state: DemoAppState
+    @ForcedEquatable fileprivate(set) var state: DemoAppState
     
     fileprivate var middleware: [BaseMiddleware]?
     
