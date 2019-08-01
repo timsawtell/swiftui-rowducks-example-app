@@ -7,8 +7,8 @@
 //
 
 import XCTest
+import SwiftUI_RowDucks
 @testable import SwiftUI_RowDucks_Example_App
-
 
 class ReducerTests: XCTestCase {
     
