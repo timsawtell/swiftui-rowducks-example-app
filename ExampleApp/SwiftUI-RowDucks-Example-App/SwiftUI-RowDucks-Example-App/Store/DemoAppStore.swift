@@ -12,8 +12,8 @@ import SwiftUI
 import SwiftUI_RowDucks
 
 /// Force the property to conform to the Equatable protocol
-@propertyDelegate struct SwiftUIEquatable<Value: Equatable> {
-    public var value: Value!
+@propertyWrapper struct SwiftUIEquatable<Value: Equatable> {
+    public var wrappedValue: Value
 }
 
 /// Used when setting up the state so that the default values are applied
@@ -38,9 +38,9 @@ fileprivate struct DemoAppMainReducer : Reducer {
     }
 }
 
-final class Store : BindableObject {
+final class Store : ObservableObject {
     /// Implement the `BindableObject` protocol 
-    var didChange = PassthroughSubject<DemoAppState, Never>()
+    var objectWillChange = PassthroughSubject<DemoAppState, Never>()
     
     /// The whole app's single `state` entity
     @SwiftUIEquatable fileprivate(set) var state: DemoAppState
@@ -72,7 +72,7 @@ final class Store : BindableObject {
         
         if state != beforeState {
             // found that the state is different after that Action, notify subscribers
-            didChange.send(state)
+            objectWillChange.send(state)
         }
     }
     

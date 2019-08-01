@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 
 struct NamesView : View {
-    @ObjectBinding var provider = NamesViewModelMapper()
+    @ObservedObject var provider = NamesViewModelMapper()
     
     func onTapName() {
         provider.store.dispatch(action: ChangeNameAction(newName: "Timothy"))
@@ -43,9 +43,8 @@ struct NamesViewModel: Equatable {
 }
 
 /// Turn the global state object into a single View Model publisher
-class NamesViewModelMapper : BindableObject {
-    var viewModel = NamesViewModel(firstName: "", lastName: "")
-    var didChange = PassthroughSubject<NamesViewModel, Never>()
+class NamesViewModelMapper : ObservableObject {
+    @Published var viewModel = NamesViewModel(firstName: "", lastName: "")
     var storeSubscription: Subscription?
     var store: Store {
         return storeInstance
@@ -54,7 +53,7 @@ class NamesViewModelMapper : BindableObject {
     init() {
         // make this instance _care_ about the store changing state by subscribing
         // to it's `PassthroughSubject`
-        store.didChange.subscribe(self)
+        store.objectWillChange.subscribe(self)
         // establish the view model based on the current app state
         mapStateToViewModel(store.state)
     }
@@ -73,11 +72,7 @@ extension NamesViewModelMapper: Subscriber {
     }
     
     func mapStateToViewModel(_ input: DemoAppState) {
-        let previousViewModel = viewModel
         viewModel = NamesViewModel(firstName: input.ui.name, lastName: input.ui.otherName)
-        if previousViewModel != viewModel {
-            didChange.send(viewModel)
-        }
     }
     
     func receive(subscription: Subscription) {

@@ -11,7 +11,7 @@ import Combine
 
 struct ItemsView : View {
     
-    @ObjectBinding var provider = ItemsViewModelMapper()
+    @ObservedObject var provider = ItemsViewModelMapper()
     
     func onTapData() {
         provider.store.dispatch(action: AddAnotherItemAction())
@@ -52,9 +52,9 @@ struct ItemsViewModel: Equatable {
 }
 
 /// Turn the global state object into a single View Model publisher
-class ItemsViewModelMapper : BindableObject {
-    var viewModel: ItemsViewModel = ItemsViewModel(itemsString: "")
-    var didChange = PassthroughSubject<ItemsViewModel, Never>()
+class ItemsViewModelMapper : ObservableObject {
+    @Published var viewModel: ItemsViewModel = ItemsViewModel(itemsString: "")
+   
     var storeSubscription: Subscription?
     var store: Store {
         return storeInstance
@@ -63,7 +63,7 @@ class ItemsViewModelMapper : BindableObject {
     init() {
         // make this instance _care_ about the store changing state by subscribing
         // to it's `PassthroughSubject`
-        store.didChange.subscribe(self)
+        store.objectWillChange.subscribe(self)
         // establish the view model based on the current app state
         mapStateToViewModel(store.state)
     }
@@ -82,18 +82,12 @@ extension ItemsViewModelMapper: Subscriber {
     }
     
     func mapStateToViewModel(_ input: DemoAppState) {
-        let previousViewModel = viewModel
-        
         var string: String = input.data.items.reduce("", { x, y in
             x + String(y) + ", "
         })
         string.removeLast(2)
         
         viewModel = ItemsViewModel(itemsString: string)
-        
-        if previousViewModel != viewModel {
-            didChange.send(viewModel)
-        }
     }
     
     func receive(subscription: Subscription) {
